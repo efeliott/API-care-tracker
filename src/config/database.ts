@@ -4,11 +4,11 @@ import { config } from "dotenv";
 config();
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME || "care_tracker",
-  process.env.DB_USER || "root",
-  process.env.DB_PASSWORD || "",
+  process.env.DB_NAME || "u103016661_aidora",
+  process.env.DB_USER || "u103016661_admin",
+  process.env.DB_PASSWORD || "?UfEXd]vG0",
   {
-    host: process.env.DB_HOST || "localhost",
+    host: process.env.DB_HOST || "193.203.168.207",
     dialect: "mysql",
     define: { timestamps: true },
   }
