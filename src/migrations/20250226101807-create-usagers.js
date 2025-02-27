@@ -2,8 +2,8 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Usagers', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable("Usagers", {
       id: { 
         type: Sequelize.INTEGER, 
         autoIncrement: true, 
@@ -22,12 +22,19 @@ module.exports = {
       },
       adresse: { type: Sequelize.STRING, allowNull: false },
       badge_nfc: { type: Sequelize.STRING, allowNull: true, unique: true },
+      etablissement_id: { 
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Etablissements", key: "id" },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
+      },
       createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
       updatedAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     });
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Usagers');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("Usagers");
   }
 };
