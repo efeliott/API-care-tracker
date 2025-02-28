@@ -1,5 +1,5 @@
 import { Model, DataTypes, Optional } from "sequelize";
-import { sequelize } from "../config/database";
+import sequelize from "../config/database";
 
 // Définition des attributs attendus pour un utilisateur
 interface UserAttributes {
